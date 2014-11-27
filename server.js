@@ -166,7 +166,7 @@ io.on('connection', function(socket) {
             });
 
             if (typeof fn === 'function') {
-                fn();
+                fn(os.hostname());
             }
 
             socket.on('disconnect', function() {
@@ -175,10 +175,6 @@ io.on('connection', function(socket) {
                 socket.removeAllListeners();
             });
         });
-    });
-
-    socket.on('hostname', function(fn) {
-        fn(os.hostname());
     });
 });
 
